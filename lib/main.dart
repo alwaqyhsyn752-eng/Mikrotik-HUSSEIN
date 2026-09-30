@@ -15,7 +15,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeState = ref.watch(themeProvider);
     return MaterialApp(
-      title: const String.fromEnvironment('APP_NAME', defaultValue: 'شبكتي'),
+      title: const String.fromEnvironment('APP_NAME', defaultValue: 'HUSSEIN Net'),
       debugShowCheckedModeBanner: false,
       theme: themeState.theme,
       locale: const Locale('ar'),

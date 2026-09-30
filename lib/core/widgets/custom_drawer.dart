@@ -6,120 +6,272 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final appName = const String.fromEnvironment('APP_NAME', defaultValue: 'شبكتي');
+    final seed = theme.colorScheme.primary;
+    final appName = const String.fromEnvironment('APP_NAME', defaultValue: 'HUSSEIN Net');
 
     return Drawer(
-      backgroundColor: theme.colorScheme.surface,
+      backgroundColor: const Color(0xFF080A12),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(24),
-          bottomRight: Radius.circular(24),
+          topRight: Radius.circular(28),
+          bottomRight: Radius.circular(28),
         ),
       ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 24,
-                    backgroundColor: theme.colorScheme.primaryContainer,
-                    child: Icon(Icons.wifi,
-                        color: theme.colorScheme.onPrimaryContainer),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          appName,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            right: BorderSide(color: seed.withValues(alpha: 0.35), width: 1),
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // رأس القائمة
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 52,
+                      height: 52,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: LinearGradient(
+                          colors: [seed, seed.withValues(alpha: 0.4)],
                         ),
-                        Text('مرحباً بك',
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.onSurfaceVariant,
-                            )),
-                      ],
+                        boxShadow: [
+                          BoxShadow(
+                            color: seed.withValues(alpha: 0.5),
+                            blurRadius: 20,
+                          ),
+                        ],
+                      ),
+                      child: Icon(Icons.bolt,
+                          color: Colors.black, size: 28),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            appName,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          Row(
+                            children: [
+                              Container(
+                                width: 6,
+                                height: 6,
+                                decoration: BoxDecoration(
+                                  color: seed,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: seed,
+                                      blurRadius: 8,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                'متصل',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  color: seed,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 1,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      seed.withValues(alpha: 0),
+                      seed.withValues(alpha: 0.6),
+                      seed.withValues(alpha: 0),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              // العناصر
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  children: const [
+                    _DrawerItem(icon: Icons.credit_card, title: 'الدخول بكرت'),
+                    _DrawerItem(icon: Icons.manage_accounts, title: 'إدارة الكرت'),
+                    _DrawerItem(icon: Icons.live_tv, title: 'البث المباشر'),
+                    _DrawerItem(icon: Icons.speed, title: 'اختبر سرعتك'),
+                    _DrawerItem(icon: Icons.location_on, title: 'نقاط الخدمة'),
+                    _DrawerItem(icon: Icons.inventory_2, title: 'الباقات'),
+                    _DrawerItem(icon: Icons.menu_book, title: 'القرآن الكريم'),
+                    _DrawerItem(icon: Icons.support_agent, title: 'أنا هنا للمساعدة'),
+                    _DrawerItem(icon: Icons.handshake, title: 'سلفني'),
+                    _DrawerItem(icon: Icons.refresh, title: 'تحديث الواجهة'),
+                    _DrawerItem(icon: Icons.info_outline, title: 'حول التطبيق'),
+                  ],
+                ),
+              ),
+              // التذييل
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      color: seed.withValues(alpha: 0.2),
+                      width: 1,
                     ),
                   ),
-                ],
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      'تصميم وتطوير',
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.white.withValues(alpha: 0.5),
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    ShaderMask(
+                      shaderCallback: (r) => LinearGradient(
+                        colors: [seed, Colors.white, seed],
+                      ).createShader(r),
+                      child: const Text(
+                        'حسين غلاب',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        color: seed.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: seed.withValues(alpha: 0.4),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.phone, size: 12, color: seed),
+                          const SizedBox(width: 4),
+                          Text(
+                            '738660998',
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: seed,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'v1.0.0',
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.white.withValues(alpha: 0.3),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const Divider(height: 1),
-            Expanded(
-              child: ListView(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                children: const [
-                  _DrawerItem(icon: Icons.credit_card, title: 'الدخول بكرت'),
-                  _DrawerItem(icon: Icons.manage_accounts, title: 'إدارة الكرت'),
-                  _DrawerItem(icon: Icons.live_tv, title: 'البث المباشر'),
-                  _DrawerItem(icon: Icons.speed, title: 'اختبر سرعتك'),
-                  _DrawerItem(icon: Icons.location_on, title: 'نقاط الخدمة'),
-                  _DrawerItem(icon: Icons.inventory_2, title: 'الباقات'),
-                  _DrawerItem(icon: Icons.menu_book, title: 'القرآن الكريم'),
-                  _DrawerItem(icon: Icons.support_agent, title: 'أنا هنا للمساعدة'),
-                  _DrawerItem(icon: Icons.handshake, title: 'سلفني'),
-                  _DrawerItem(icon: Icons.refresh, title: 'تحديث الواجهة'),
-                  _DrawerItem(icon: Icons.info_outline, title: 'حول التطبيق'),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  Text('تصميم وتطوير',
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      )),
-                  Text('حسين غلاب',
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      )),
-                  Text('738660998',
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      )),
-                  const SizedBox(height: 4),
-                  Text('الإصدار 1.0.0',
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      )),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class _DrawerItem extends StatelessWidget {
+class _DrawerItem extends StatefulWidget {
   final IconData icon;
   final String title;
   const _DrawerItem({required this.icon, required this.title});
 
   @override
+  State<_DrawerItem> createState() => _DrawerItemState();
+}
+
+class _DrawerItemState extends State<_DrawerItem> {
+  bool _hover = false;
+
+  @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final seed = Theme.of(context).colorScheme.primary;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-      child: ListTile(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-        leading: Icon(icon, color: theme.colorScheme.onSurfaceVariant),
-        title: Text(title, style: theme.textTheme.bodyLarge),
+      child: InkWell(
         onTap: () {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('$title - قريباً')),
+            SnackBar(
+              content: Text('${widget.title} - قريباً'),
+              backgroundColor: const Color(0xFF0B0E18),
+            ),
           );
         },
+        onHover: (v) => setState(() => _hover = v),
+        borderRadius: BorderRadius.circular(14),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          decoration: BoxDecoration(
+            color: _hover
+                ? seed.withValues(alpha: 0.12)
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(
+              color: _hover
+                  ? seed.withValues(alpha: 0.5)
+                  : Colors.transparent,
+              width: 1,
+            ),
+          ),
+          child: Row(
+            children: [
+              Icon(widget.icon, size: 22, color: seed),
+              const SizedBox(width: 14),
+              Text(
+                widget.title,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
