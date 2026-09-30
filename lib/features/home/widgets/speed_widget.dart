@@ -52,9 +52,9 @@ class _NetworkSpeedIndicatorState extends State<NetworkSpeedIndicator>
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
-            color: seed.withValues(alpha: 0.12),
+            color: seed.withOpacity(0.12),
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: seed.withValues(alpha: 0.6), width: 1),
+            border: Border.all(color: seed.withOpacity(0.6), width: 1),
             boxShadow: [
               BoxShadow(
                 color: seed.withValues(alpha: 0.35 * glow),

@@ -64,7 +64,7 @@ class _AuroraPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final blobs = [
       _Blob(
-        color: seed.withValues(alpha: 0.35),
+        color: seed.withOpacity(0.35),
         radius: size.width * 0.55,
         center: Offset(
           size.width * (0.25 + 0.15 * math.sin(phase)),
@@ -72,7 +72,7 @@ class _AuroraPainter extends CustomPainter {
         ),
       ),
       _Blob(
-        color: seed.withValues(alpha: 0.22),
+        color: seed.withOpacity(0.22),
         radius: size.width * 0.65,
         center: Offset(
           size.width * (0.80 + 0.12 * math.cos(phase * 1.1)),
@@ -80,7 +80,7 @@ class _AuroraPainter extends CustomPainter {
         ),
       ),
       _Blob(
-        color: const Color(0xFF7C4DFF).withValues(alpha: 0.22),
+        color: const Color(0xFF7C4DFF).withOpacity(0.22),
         radius: size.width * 0.5,
         center: Offset(
           size.width * (0.50 + 0.20 * math.cos(phase * 0.7)),
@@ -94,7 +94,7 @@ class _AuroraPainter extends CustomPainter {
         ..shader = RadialGradient(
           colors: [
             b.color,
-            b.color.withValues(alpha: 0),
+            b.color.withOpacity(0),
           ],
         ).createShader(Rect.fromCircle(center: b.center, radius: b.radius))
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 80);

@@ -20,7 +20,7 @@ class CustomDrawer extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border(
-            right: BorderSide(color: seed.withValues(alpha: 0.35), width: 1),
+            right: BorderSide(color: seed.withOpacity(0.35), width: 1),
           ),
         ),
         child: SafeArea(
@@ -37,11 +37,11 @@ class CustomDrawer extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         gradient: LinearGradient(
-                          colors: [seed, seed.withValues(alpha: 0.4)],
+                          colors: [seed, seed.withOpacity(0.4)],
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: seed.withValues(alpha: 0.5),
+                            color: seed.withOpacity(0.5),
                             blurRadius: 20,
                           ),
                         ],
@@ -102,9 +102,9 @@ class CustomDrawer extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      seed.withValues(alpha: 0),
-                      seed.withValues(alpha: 0.6),
-                      seed.withValues(alpha: 0),
+                      seed.withOpacity(0),
+                      seed.withOpacity(0.6),
+                      seed.withOpacity(0),
                     ],
                   ),
                 ),
@@ -135,7 +135,7 @@ class CustomDrawer extends StatelessWidget {
                 decoration: BoxDecoration(
                   border: Border(
                     top: BorderSide(
-                      color: seed.withValues(alpha: 0.2),
+                      color: seed.withOpacity(0.2),
                       width: 1,
                     ),
                   ),
@@ -146,7 +146,7 @@ class CustomDrawer extends StatelessWidget {
                       'تصميم وتطوير',
                       style: TextStyle(
                         fontSize: 10,
-                        color: Colors.white.withValues(alpha: 0.5),
+                        color: Colors.white.withOpacity(0.5),
                         letterSpacing: 1.2,
                       ),
                     ),
@@ -172,10 +172,10 @@ class CustomDrawer extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: seed.withValues(alpha: 0.15),
+                        color: seed.withOpacity(0.15),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: seed.withValues(alpha: 0.4),
+                          color: seed.withOpacity(0.4),
                         ),
                       ),
                       child: Row(
@@ -199,7 +199,7 @@ class CustomDrawer extends StatelessWidget {
                       'v1.0.0',
                       style: TextStyle(
                         fontSize: 10,
-                        color: Colors.white.withValues(alpha: 0.3),
+                        color: Colors.white.withOpacity(0.3),
                       ),
                     ),
                   ],
@@ -247,12 +247,12 @@ class _DrawerItemState extends State<_DrawerItem> {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           decoration: BoxDecoration(
             color: _hover
-                ? seed.withValues(alpha: 0.12)
+                ? seed.withOpacity(0.12)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
               color: _hover
-                  ? seed.withValues(alpha: 0.5)
+                  ? seed.withOpacity(0.5)
                   : Colors.transparent,
               width: 1,
             ),

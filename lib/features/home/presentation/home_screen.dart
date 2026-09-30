@@ -63,14 +63,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               color: Theme.of(context)
                   .colorScheme
                   .primary
-                  .withValues(alpha: 0.3),
+                  .withOpacity(0.3),
             ),
             boxShadow: [
               BoxShadow(
                 color: Theme.of(context)
                     .colorScheme
                     .primary
-                    .withValues(alpha: 0.2),
+                    .withOpacity(0.2),
                 blurRadius: 20,
               ),
             ],
@@ -80,7 +80,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             child: NavigationBar(
               selectedIndex: _idx,
               onDestinationSelected: (i) => setState(() => _idx = i),
-              backgroundColor: const Color(0xFF0B0E18).withValues(alpha: 0.92),
+              backgroundColor: const Color(0xFF0B0E18).withOpacity(0.92),
               height: 68,
               destinations: const [
                 NavigationDestination(
@@ -134,9 +134,9 @@ class _EmptyTab extends StatelessWidget {
             padding: const EdgeInsets.all(28),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: seed.withValues(alpha: 0.4), width: 2),
+              border: Border.all(color: seed.withOpacity(0.4), width: 2),
               boxShadow: [
-                BoxShadow(color: seed.withValues(alpha: 0.4), blurRadius: 30),
+                BoxShadow(color: seed.withOpacity(0.4), blurRadius: 30),
               ],
             ),
             child: Icon(Icons.construction, size: 56, color: seed),
@@ -176,7 +176,7 @@ class _HomeTab extends StatelessWidget {
             'أهلاً بك في',
             style: TextStyle(
               fontSize: 14,
-              color: Colors.white.withValues(alpha: 0.6),
+              color: Colors.white.withOpacity(0.6),
               letterSpacing: 1.5,
             ),
           ),
@@ -206,9 +206,9 @@ class _HomeTab extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    seed.withValues(alpha: 0.35),
-                    const Color(0xFF7C4DFF).withValues(alpha: 0.25),
-                    seed.withValues(alpha: 0.15),
+                    seed.withOpacity(0.35),
+                    const Color(0xFF7C4DFF).withOpacity(0.25),
+                    seed.withOpacity(0.15),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(22),
@@ -223,7 +223,7 @@ class _HomeTab extends StatelessWidget {
                       height: 100,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: seed.withValues(alpha: 0.3),
+                        color: seed.withOpacity(0.3),
                       ),
                     ),
                   ),
@@ -266,7 +266,7 @@ class _HomeTab extends StatelessWidget {
                           'سرعات تصل إلى 100 Mbps',
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.white.withValues(alpha: 0.75),
+                            color: Colors.white.withOpacity(0.75),
                           ),
                         ),
                       ],
@@ -288,10 +288,10 @@ class _HomeTab extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: seed.withValues(alpha: 0.15),
+                        color: seed.withOpacity(0.15),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: seed.withValues(alpha: 0.4),
+                          color: seed.withOpacity(0.4),
                         ),
                       ),
                       child: Icon(Icons.account_balance_wallet,
@@ -332,11 +332,11 @@ class _HomeTab extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [seed, seed.withValues(alpha: 0.5)]),
+                    gradient: LinearGradient(colors: [seed, seed.withOpacity(0.5)]),
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: seed.withValues(alpha: 0.5),
+                        color: seed.withOpacity(0.5),
                         blurRadius: 16,
                       ),
                     ],
@@ -438,10 +438,10 @@ class _WalletAction extends StatelessWidget {
           height: 52,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: seed.withValues(alpha: 0.1),
-            border: Border.all(color: seed.withValues(alpha: 0.5), width: 1),
+            color: seed.withOpacity(0.1),
+            border: Border.all(color: seed.withOpacity(0.5), width: 1),
             boxShadow: [
-              BoxShadow(color: seed.withValues(alpha: 0.3), blurRadius: 12),
+              BoxShadow(color: seed.withOpacity(0.3), blurRadius: 12),
             ],
           ),
           child: Icon(icon, color: seed, size: 22),
@@ -479,11 +479,11 @@ class _ServiceCard extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: seed.withValues(alpha: 0.12),
-              border: Border.all(color: seed.withValues(alpha: 0.4)),
+              color: seed.withOpacity(0.12),
+              border: Border.all(color: seed.withOpacity(0.4)),
               boxShadow: [
                 BoxShadow(
-                  color: seed.withValues(alpha: 0.25),
+                  color: seed.withOpacity(0.25),
                   blurRadius: 12,
                 ),
               ],

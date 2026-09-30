@@ -45,19 +45,19 @@ class ThemeNotifier extends StateNotifier<ThemeState> {
         centerTitle: false,
       ),
       cardTheme: CardTheme(
-        color: Colors.white.withValues(alpha: 0.04),
+        color: Colors.white.withOpacity(0.04),
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
           side: BorderSide(
-            color: seed.withValues(alpha: 0.25),
+            color: seed.withOpacity(0.25),
             width: 1,
           ),
         ),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFF0B0E18).withValues(alpha: 0.9),
-        indicatorColor: seed.withValues(alpha: 0.2),
+        backgroundColor: const Color(0xFF0B0E18).withOpacity(0.9),
+        indicatorColor: seed.withOpacity(0.2),
         labelTextStyle: WidgetStateProperty.all(
           const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
         ),
@@ -71,9 +71,9 @@ class ThemeNotifier extends StateNotifier<ThemeState> {
   static List<Color> _gradientFrom(Color seed) {
     return [
       const Color(0xFF06070D),
-      seed.withValues(alpha: 0.12),
+      seed.withOpacity(0.12),
       const Color(0xFF06070D),
-      seed.withValues(alpha: 0.08),
+      seed.withOpacity(0.08),
     ];
   }
 
