@@ -57,7 +57,7 @@ class _NetworkSpeedIndicatorState extends State<NetworkSpeedIndicator>
             border: Border.all(color: seed.withOpacity(0.6), width: 1),
             boxShadow: [
               BoxShadow(
-                color: seed.withValues(alpha: 0.35 * glow),
+                color: seed.withOpacity(0.35 * glow),
                 blurRadius: 14,
                 spreadRadius: 1,
               ),
